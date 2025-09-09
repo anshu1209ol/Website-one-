@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dairy Management App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-teal-50 font-inter">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold text-center text-teal-800 mb-8 animate-fade-in">Dairy Management App</h1>
+
+    <!-- Customer Form -->
+    <div class="bg-white p-8 rounded-xl shadow-lg mb-8 transform hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6">Add Customer</h2>
+      <form id="customerForm" class="space-y-4">
+        <input type="text" id="customerName" placeholder="Customer Name" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500">
+        <input type="tel" id="customerPhone" placeholder="Phone Number" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500">
+        <button type="submit" class="bg-teal-600 text-white p-3 rounded-lg hover:bg-teal-700 transition-colors">Add Customer</button>
+      </form>
+    </div>
+
+    <!-- Product Form -->
+    <div class="bg-white p-8 rounded-xl shadow-lg mb-8 transform hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6">Add Product</h2>
+      <form id="productForm" class="space-y-4">
+        <input type="text" id="productName" placeholder="Product Name" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500">
+        <input type="number" id="productRate" placeholder="Rate (per unit)" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500" step="0.01">
+        <button type="submit" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors">Add Product</button>
+      </form>
+    </div>
+
+    <!-- Daily Record Form -->
+    <div class="bg-white p-8 rounded-xl shadow-lg mb-8 transform hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6">Daily Record</h2>
+      <form id="recordForm" class="space-y-4">
+        <label for="recordCustomer" class="block text-teal-700 font-medium">Customer</label>
+        <select id="recordCustomer" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500">
+          <option value="">Select Customer</option>
+        </select>
+        <label for="recordProduct" class="block text-teal-700 font-medium">Product</label>
+        <select id="recordProduct" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500">
+          <option value="">Select Product</option>
+        </select>
+        <input type="number" id="recordQuantity" placeholder="Quantity" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500" step="0.01">
+        <label for="recordDate" class="block text-teal-700 font-medium">Date</label>
+        <input type="date" id="recordDate" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="Select date" title="Select date">
+        <button type="submit" class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition-colors">Add Record</button>
+      </form>
+    </div>
+
+    <!-- Records Table -->
+    <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6">Daily Records</h2>
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-teal-100">
+            <th class="p-3 border">Date</th>
+            <th class="p-3 border">Customer</th>
+            <th class="p-3 border">Product</th>
+            <th class="p-3 border">Quantity</th>
+            <th class="p-3 border">Total</th>
+            <th class="p-3 border">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="recordsTable"></tbody>
+      </table>
+    </div>
+
+    <!-- Receipt Customization -->
+    <div class="bg-white p-8 rounded-xl shadow-lg mb-8 transform hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6">Customize Receipt</h2>
+      <label for="receiptTemplate" class="block text-teal-700 font-medium mb-2">Receipt Template</label>
+      <textarea id="receiptTemplate" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500" rows="5" placeholder="Enter receipt template here" title="Customize the receipt template">Dairy Receipt
+Customer: {customer}
+Date: {date}
+Product: {product}
+Quantity: {quantity}
+Total: {total}
+Thank you!</textarea>
+      <button id="generateReceipt" class="bg-yellow-600 text-white p-3 rounded-lg hover:bg-yellow-700 transition-colors mt-4">Generate & Send Receipt</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html># Website-one-
